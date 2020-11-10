@@ -1,0 +1,60 @@
+{
+  "name": "cra-ts-cucumber-puppeteer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test:suite": "npm run test:unit && npm run e2e",
+    "test": "react-scripts test",
+    "e2e": "start-server-and-test server http://localhost:5000 cucumber",
+    "precucumber": "mkdir -p reports && touch $_/cucumber_report.json",
+    "cucumber": "cross-env PORT=5000 cucumber-js ./e2e -f json:reports/cucumber_report.json",
+    "postcucumber": "node ./cucumber-report.js",
+    "server": "serve -s ./build"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/cucumber": "^6.0.1",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "cross-env": "^7.0.2",
+    "cucumber": "^6.0.5",
+    "cucumber-html-reporter": "^5.0.2",
+    "pixelmatch": "^5.2.1",
+    "pngjs": "^6.0.0",
+    "puppeteer": "^5.4.1",
+    "react-scripts": "4.0.0",
+    "serve": "^11.3.2",
+    "start-server-and-test": "^1.11.5",
+    "ts-node": "8.5.4",
+    "typescript": "^4.0.3"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
